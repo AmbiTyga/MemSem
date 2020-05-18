@@ -1,0 +1,7 @@
+praw
+pytesseract
+transformers
+ttensorflow==2.1.0-rc0
+pandas 
+numpy
+nltk
