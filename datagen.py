@@ -1,9 +1,7 @@
 import pytesseract
 import os
-from keras.preprocessing import image as keras_image
 from preprocessing import preprocess_image, preprocess_txt
-import pandas as pd
-
+import pickle
 try:
     from PIL import Image
 except ImportError:
@@ -21,10 +19,7 @@ for dirname, _, filenames in os.walk('./dataset/'):
 
             data['image'].append(
                 preprocess_image(
-                    keras_image.load_img(
-                        os.path.join(dirname, filename),
-                        target_size=(224, 224),
-                        interpolation='bicubic')))
+                    os.path.join(dirname, filename)))
 
             data['filepath'].append(
                 os.path.join(dirname, filename))
@@ -41,5 +36,7 @@ for dirname, _, filenames in os.walk('./dataset/'):
 
         print('\r images: {} texts: {} labels : {}'.format(len(data['image']), len(data['text']), len(data['label'])), end='')
 
-data = pd.DataFrame(data).convert_dtypes().sample(frac=1).reset_index(drop=True)
-data.to_pickle("data.pkl")
+
+with open("data.pkl", "wb") as pickle_out:
+    pickle.dump(data, pickle_out)
+pickle_out.close()
