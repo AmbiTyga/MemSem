@@ -8,7 +8,7 @@ Recent developments in Deep Learning has paved the way to accomplish tasks invol
 ## Architecture
 The learning architecture behind this is based on the model proposed in the [MemSem paper](https://drive.google.com/file/d/1eAbbQLemseaGMdHrmFjukQZUG1vqVbfL/view?usp=sharing).
 
-![Architecture]()
+![Architecture](./dataset/Architecture.png)
 The architecture is trained with data downloaded from [Reddit]([[https://www.reddit.com/](https://www.reddit.com/)])'s meme pages. The images can be classified in 3 categories: Postive Meme, Negative meme, Neutral Meme. These images are preprocessed using `preprocessing.py` and the embedded text is extracted using [tesseract-ocr]([https://tesseract-ocr.github.io/](https://tesseract-ocr.github.io/)) and [pytessaract]([https://github.com/madmaze/pytesseract](https://github.com/madmaze/pytesseract)) and further processed using `datagen.py`. The preprocessed images are then fed to the [VGG19]([https://arxiv.org/abs/1409.1556](https://arxiv.org/abs/1409.1556)) for image feature extraction and the preprocessed text is further tokenized and fed into [BERT-base-uncased]([https://arxiv.org/abs/1810.04805](https://arxiv.org/abs/1810.04805)) for text feature extraction. The features extracted from two different modalities are concatenated and passed through a pair of fully connected layers for classification.
 
 ## Installation
@@ -34,7 +34,7 @@ We acquired the data or the images based on reviews and opinion of peoples on th
 - [r/wholesomememes]([https://www.reddit.com/r/wholesomememes/](https://www.reddit.com/r/wholesomememes/)): This sub reddit page contents were reviewed as influential and funny in good sense.
 - [r/darkmeme]([https://www.reddit.com/r/darkmeme/](https://www.reddit.com/r/darkmeme/)): This sub reddit page contents were reviewed as the most offensive memes.
 - [r/antimeme]([https://www.reddit.com/r/antimeme/](https://www.reddit.com/r/antimeme/)): This sub reddit page contents were reviewed as meaningless meme meaning it was not influential, no humor, no meaningful contents and were neither offensive.
-
+![Memes](./dataset/3_tile_MEME.jpg)
 To extract the dataset we used [PRAW]([https://praw.readthedocs.io/](https://praw.readthedocs.io/)). It's also called **P**ython **R**eddit **A**PI **W**rapper. It's a wrapper class for Reddit's API, which help in retrieving data from Reddit. 
 
 We also used [google-images-downloader]([https://google-images-download.readthedocs.io/](https://google-images-download.readthedocs.io/)). It's a python script and a command line function to download images from google image search. It utilizes the package `selenium` and a software `chromedriver`, to search and download image. In our case we use command line method to download the data.
