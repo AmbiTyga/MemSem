@@ -45,3 +45,14 @@ After that run `datagen.py` for preprocessing, image to array transformation, te
 ## Train
 To train the architecture run `train.py`. It will load the `data.pkl`, and train it on that data. It will then save the weights in folder `./MemSem`. You can use the `model.py` for evaluation and testing.
 
+# Collaborators
+- [Raj Ratn Pranesh](https://rajratnpranesh.github.io/)
+
+# Cite
+```
+@inproceedings{Pranesh2020MemeSemAMF,
+  title={MemeSem:A Multi-modal Framework for Sentimental Analysis of Meme via Transfer Learning},
+  author={R. R. Pranesh and Ambesh Shekhar},
+  year={2020}
+}
+```
